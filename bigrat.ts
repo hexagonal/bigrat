@@ -1,4 +1,4 @@
-const abs = (n: bigint) => n < 0 ? -n : n;
+const abs = (n: bigint) => n < 0n ? -n : n;
 
 const g = (m: bigint, n: bigint): bigint => {
   if (n === 0n) { return m; }
