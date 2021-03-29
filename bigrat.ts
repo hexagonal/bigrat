@@ -64,6 +64,17 @@ export class BigRat {
     return this.times(x.reciprocal());
   }
 
+  round(): bigint {
+	  let quotient = this.top / this.bottom;
+	  let remainder = this.top % this.bottom;
+	  let isRounded = abs(remainder) >= abs(this.bottom) - abs(remainder);
+
+    if (!isRounded) return quotient;
+
+    let signedOne = remainder >= 0 ? 1n : -1n;
+	  return quotient + signedOne;
+  }
+  
   toString() {
     return `${this.top}/${this.bottom}`;
   }
